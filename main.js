@@ -7,7 +7,7 @@ $(document).ready(function () {
 // Creating an array for a deck to input all the different cards.
 var cardsInUse = new Array();
 
-function allCards(name, suit, value) {
+function allCard(name, suit, value) {
 	this.name = name;
 	this.value = value;
 	this.suit = suit;
@@ -16,73 +16,83 @@ function allCards(name, suit, value) {
 
 var theDeck = [
 
-	new card('Two', 'Clubs', 2),
-	new card('Three', 'Clubs', 3),
-	new card('Four', 'Clubs', 4),
-	new card('Five', 'Clubs', 5),
-	new card('Six', 'Clubs', 6),
-	new card('Seven', 'Clubs', 7),
-	new card('Eight', 'Clubs', 8),
-	new card('Nine', 'Clubs', 9),
-	new card('Ten', 'Clubs', 10),
-	new card('Jack', 'Clubs', 10),
-	new card('Queen', 'Clubs', 10),
-	new card('King', 'Clubs', 10),
-	new card('Ace', 'Clubs', 11),
-	new card('Two', 'Diamonds', 2),
-	new card('Three', 'Diamonds', 3),
-	new card('Four', 'Diamonds', 4),
-	new card('Five', 'Diamonds', 5),
-	new card('Six', 'Diamonds', 6),
-	new card('Seven', 'Diamonds', 7),
-	new card('Eight', 'Diamonds', 8),
-	new card('Nine', 'Diamonds', 9),
-	new card('Ten', 'Diamonds', 10),
-	new card('Jack', 'Diamonds', 10),
-	new card('Queen', 'Diamonds', 10),
-	new card('King', 'Diamonds', 10),
-	new card('Ace', 'Diamonds', 11),
-	new card('Two', 'Spades', 2),
-	new card('Three', 'Spades', 3),
-	new card('Four', 'Spades', 4),
-	new card('Five', 'Spades', 5),
-	new card('Six', 'Spades', 6),
-	new card('Seven', 'Spades', 7),
-	new card('Eight', 'Spades', 8),
-	new card('Nine', 'Spades', 9),
-	new card('Ten', 'Spades', 10),
-	new card('Jack', 'Spades', 10),
-	new card('Queen', 'Spades', 10),
-	new card('King', 'Spades', 10),
-	new card('Ace', 'Spades', 11),
-	new card('Two', 'Hearts', 2),
-	new card('Three', 'Hearts', 3),
-	new card('Four', 'Hearts', 4),
-	new card('Five', 'Hearts', 5),
-	new card('Six', 'Hearts', 6),
-	new card('Seven', 'Hearts', 7),
-	new card('Eight', 'Hearts', 8),
-	new card('Nine', 'Hearts', 9),
-	new card('Ten', 'Hearts', 10),
-	new card('Jack', 'Hearts', 10),
-	new card('King', 'Hearts', 10),
-	new card('Queen', 'Hearts', 10),
-	new card('Ace', 'Hearts', 11)
+	new allCard('Two', 'Clubs', 2),
+	new allCard('Three', 'Clubs', 3),
+	new allCard('Four', 'Clubs', 4),
+	new allCard('Five', 'Clubs', 5),
+	new allCard('Six', 'Clubs', 6),
+	new allCard('Seven', 'Clubs', 7),
+	new allCard('Eight', 'Clubs', 8),
+	new allCard('Nine', 'Clubs', 9),
+	new allCard('Ten', 'Clubs', 10),
+	new allCard('Jack', 'Clubs', 10),
+	new allCard('Queen', 'Clubs', 10),
+	new allCard('King', 'Clubs', 10),
+	new allCard('Ace', 'Clubs', 11),
+	new allCard('Two', 'Diamonds', 2),
+	new allCard('Three', 'Diamonds', 3),
+	new allCard('Four', 'Diamonds', 4),
+	new allCard('Five', 'Diamonds', 5),
+	new allCard('Six', 'Diamonds', 6),
+	new allCard('Seven', 'Diamonds', 7),
+	new allCard('Eight', 'Diamonds', 8),
+	new allCard('Nine', 'Diamonds', 9),
+	new allCard('Ten', 'Diamonds', 10),
+	new allCard('Jack', 'Diamonds', 10),
+	new allCard('Queen', 'Diamonds', 10),
+	new allCard('King', 'Diamonds', 10),
+	new allCard('Ace', 'Diamonds', 11),
+	new allCard('Two', 'Spades', 2),
+	new allCard('Three', 'Spades', 3),
+	new allCard('Four', 'Spades', 4),
+	new allCard('Five', 'Spades', 5),
+	new allCard('Six', 'Spades', 6),
+	new allCard('Seven', 'Spades', 7),
+	new allCard('Eight', 'Spades', 8),
+	new allCard('Nine', 'Spades', 9),
+	new allCard('Ten', 'Spades', 10),
+	new allCard('Jack', 'Spades', 10),
+	new allCard('Queen', 'Spades', 10),
+	new allCard('King', 'Spades', 10),
+	new allCard('Ace', 'Spades', 11),
+	new allCard('Two', 'Hearts', 2),
+	new allCard('Three', 'Hearts', 3),
+	new allCard('Four', 'Hearts', 4),
+	new allCard('Five', 'Hearts', 5),
+	new allCard('Six', 'Hearts', 6),
+	new allCard('Seven', 'Hearts', 7),
+	new allCard('Eight', 'Hearts', 8),
+	new allCard('Nine', 'Hearts', 9),
+	new allCard('Ten', 'Hearts', 10),
+	new allCard('Jack', 'Hearts', 10),
+	new allCard('King', 'Hearts', 10),
+	new allCard('Queen', 'Hearts', 10),
+	new allCard('Ace', 'Hearts', 11)
 	
 ];
 
 
+var playerHand = {
 
 
 
 
-function countCards(argument) {
+
+
+
+
+
+}
+
+
+
+function countSumCards(argument) {
 	
 }
 
 
 function randomNum(number) {
-	var num = Math.floor(Math.random() * num);
+	var num = Math.floor(Math.random() * number);
 	return num;
 }
 
