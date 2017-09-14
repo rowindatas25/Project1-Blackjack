@@ -4,7 +4,7 @@ body {
 
 .blackjack {
 	height: 500px;
-	width: 700px;
+	width: 900px;
 	border: 2px solid black;
 	margin: 0 auto;
 	padding: 30px;
@@ -46,6 +46,7 @@ body {
 	border-radius: 10px;
 	padding: 10px;
 	display: inline-block;
+	text-align: center;
 	margin: 7px;
 	vertical-align: top;
 }
@@ -57,6 +58,7 @@ body {
 	border-radius: 10px;
 	padding: 10px;
 	display: inline-block;
+	text-align: center;
 	margin: 7px;
 
 	
@@ -76,11 +78,24 @@ h1 {
 
 
 #hand1, #hand2 {
-	height: 200px;
-	width: 128px;
+	height: 128px;
+	width: 160px;
+	border: 1px solid white;
+	width: 90%;
+	display: table;
+	margin: 0 auto;
+	margin-top: 60px;
+	
+
 }
 
-
+.card1, .card2, .card3, .card4{
+		height: 80px;
+		width: 50px;
+		border: 1px solid white;
+		display: inline-block;
+		margin: 0 auto;
+}
 
 
 
