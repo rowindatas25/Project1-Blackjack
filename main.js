@@ -30,6 +30,7 @@ function makeDeck() {
 		return deck;
 }
 
+
 // Creating the player hand and players by iterating their information into the multiple player function with a dealer and player 1.
 function makePlayers(num) {
 	multiplePlayers = new Array();
@@ -50,10 +51,10 @@ for (var i = 0; i < multiplePlayers.length; i++) {
 	var $divPlayerHand = $('<div>');
 	var $divScore = $('<div>');
 	var $divPlayerId = $('<div>');
-}
 
-	$divScore.attr('id', 'cardScore');
+
 	$divScore.add('score');
+	$divScore.attr('id', 'score1');
 	$divPlayer1.attr('id', 'player1');
 	$divPlayer1.add('bjPlayer');
 	$divplayerHand.attr('id', 'hand');
@@ -63,7 +64,7 @@ for (var i = 0; i < multiplePlayers.length; i++) {
 	$divPlayer1.append($divScore);
 	$divPlayer1.append($divplayerHand);
 	$('players').append($divPlayer1);
-
+}
 });
 // shuffling the deck for every 100 turns, switch values of cards
 function shuffleCards() {
@@ -180,7 +181,6 @@ function loser() {
 function updateDeck() {
 	document.getElementById('deckCounter').innerHTML = deck.length;
 }
-
 
 
 
