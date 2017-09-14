@@ -8,23 +8,44 @@
   integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
   crossorigin="anonymous"></script>
  <script type="text/javascript" src = "main.js"></script>
- <h1>CLASSIC BLACKJACK</h1>
+ <h1>Classic Blackjack</h1>
 </head>
 <body>
+<div class="blackjack"></div>
+<input type = "button" class = "btn" value = "deal cards" onclick = "startGame()"/>
+<input type = "button" class = "btn" value = "hit me" onclick = "hit()"/>
+<input type = "button" class = "btn" value = "stay" onclick = "stay()"/>
 
-<div id="container"></div>
 
-<div class="controlla"></div>
 
-<h1>Click card to reveal it</h1>
+<h2>Click card to reveal it</h2>
 
-<div class = "p1Hand"></div>
-<div class = "dealButton"></div>
-<div class = "hitButton"></div>
-<div class = "stayButton"></div>
-<div class = "rerunButton"></div>
-<div></div>
-<div></div>
+<div class="deck">
+	<div class="card" id = "deckCounter"></div>
+</div>
+
+
+<div class="players">
+<div id = "player working" class = "dealer">
+<div id = hand1>21
+<div class="card1"></div>
+<div class="card2"></div>
+
+</div>	
+</div>
+<div class="player1">
+	<div id="hand2">20
+		<div class = "card3"></div> 
+		<div class="card4"></div>
+			
+		</div>
+</div>
+
+</div>
+
+
+<div class = "clear"></div>
+
 
 
 </body>

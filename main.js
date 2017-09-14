@@ -1,7 +1,7 @@
 	
 // Creating the deck
-	var suits = ["Spades", "Diamonds", "Hearts", "Clubs"];
 	var cardValues = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"];
+	var suits = ["Spades", "Diamonds", "Hearts", "Clubs"];
 	var theDeck = new Array();
 	var multiplePlayers = new Array();
 	var player1 = 0;
@@ -53,9 +53,9 @@ for (var i = 0; i < multiplePlayers.length; i++) {
 }
 
 	$divScore.attr('id', 'cardScore');
-	$divScore.addClass('score');
+	$divScore.add('score');
 	$divPlayer1.attr('id', 'player1');
-	$divPlayer1.addClass('bjPlayer');
+	$divPlayer1.add('bjPlayer');
 	$divplayerHand.attr('id', 'hand');
 
 	$divPlayerId.html(multiplePlayers[i].ID);
@@ -87,7 +87,7 @@ function startGame() {
 	makePlayers(2);
 	playerUI();
 	dealHand();
-	document.getElementById('player1' + player1.classList.add('ready'));
+	document.getElementById('player1' + player1.classList.add('working'));
 }
 
 // give two cards to each player by alternating them
@@ -112,7 +112,7 @@ function renderCard(card, player) {
 //Using JQuery for user interface
 $(document).ready(function cardUI(card) {
 	var $element = $('<div>');
-	$element.addClass('card');
+	$element.add('card');
 	$element.html('card.suit' + ' ' + 'card.value');
 	return $element;
 
@@ -128,28 +128,58 @@ function scoreKeeper(player) {
 	return wins;
 }
 function updateScore() {
-	
+	for (var i = 0; i < multiplePlayers.length; i++) {
+		scoreKeeper(i);
+		document.getElementById('cardScore' + i).textContent = multiplePlayers[i].score;
+	}
+}
+
+// provide a card from the deck to a current player with the hit function
+function hit() {
+		card = deck.pop();
+		multiplePlayers[player1].playerHand.push(card);
+		renderCard(card, player1);
+		updateScore();
+		loser();
+		updateDeck();
+
+}
+
+// move to next person
+function stay() {
+	if (player1 != multiplePlayers.length - 1) {
+		document.getElementById('player1' + player1).classList.remove('working');
+		player1 += 1;
+		document.getElementById('player1' + player1).classList.add('working');
+	}
+	else {
+		endRound();
+	}
+}
+
+function endRound() {
+	var winner = -1;
+	var total = 0;
+	for (var i = 0; i < multiplePlayers.length; i++) {
+			if (multiplePlayers.score > total && multiplePlayers[i].score < 22) {
+					winner = i;
+			}
+					total = multiplePlayers[i].score;
+	}
+
+	alert ("Winner: " + multiplePlayers[winner].ID);
+}
+
+function loser() {
+	if (multiplePlayers[player1].score > 21) {
+		alert("Loser: " + multiplePlayers[player1].ID);
+	}
 }
 
 
-function randomNum(number) {
-	var num = Math.floor(Math.random() * number);
-	return num;
+function updateDeck() {
+	document.getElementById('deckCounter').innerHTML = deck.length;
 }
-
-function flipCard(argument) {
-	
-}
-
-function function_name(argument) {
-	// body...
-}
-
-
-
-
-
-
 
 
 

@@ -1,0 +1,87 @@
+body {
+	background: url("https://mxg.cdnbf.net/mexchangeblackjack/turbo/assets/gameView/tableBackground.png");
+}
+
+.blackjack {
+	height: 500px;
+	width: 700px;
+	border: 2px solid black;
+	margin: 0 auto;
+	padding: 30px;
+	position: absolute;
+}
+
+.players {
+	float: left;
+	width: 400px;
+	height: 275px;
+	position: relative;
+	
+	
+}
+
+.card {
+	background: url("http://www.bridgeworld.com/images/storeimages/merchitems200w/1255-OFC.jpg");
+	height: 275px;
+	width: 200px;
+	border: 1px solid white;
+	display: inline-block;
+	border-radius: 10px;
+	font-size: 10px;
+	text-align: center;
+	margin: 1px;
+	position: relative;
+}
+
+.deck {
+	float: right;
+	width: 300px;
+	position: relative;
+}
+
+.player1 {
+	width: 40%;
+	height: 275px;
+	border: 2px solid #ccc;
+	border-radius: 10px;
+	padding: 10px;
+	display: inline-block;
+	margin: 7px;
+	vertical-align: top;
+}
+
+.dealer {
+	width: 40%;
+	height: 275px;
+	border: 2px solid #ccc;
+	border-radius: 10px;
+	padding: 10px;
+	display: inline-block;
+	margin: 7px;
+
+	
+}
+
+
+
+h1 {
+	text-align: center;
+	color: red;
+}
+
+
+.player.working {
+	border: solid black 2px;
+}
+
+
+#hand1, #hand2 {
+	height: 200px;
+	width: 128px;
+}
+
+
+
+
+
+
