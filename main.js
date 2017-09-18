@@ -2,10 +2,10 @@
 	
 	var cardValues = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
 	var suits = ["Spades", "Diamonds", "Hearts", "Clubs"];
-	var theDeck = new Array();
-	var multiplePlayers = new Array();
+	var theDeck = [];
+	var multiplePlayers = [];
 	var currentPlayer = 0;
-var player =  {};
+		var player =  {};
 			var dealer = {};
 
 // iterating the value of each card and the different suits through an array for the deck.
@@ -45,15 +45,14 @@ function makeDeck() {
 
 // Creating the player hand and players by iterating their information into the multiple player function with a dealer and player 1.
 function makePlayers(num) {
-	multiplePlayers = new Array();
+	multiplePlayers = [];
 	for (var i = 1; i <= num; i++) {
-		var playerHand = new Array();
-		var dealerHand = new Array();
-			var player = {name: 'player', ID: i, score: 0, playerHand : playerHand};
-			var dealer = {name: 'dealer', ID: i, score: 0, dealerHand: dealerHand};
+		var Hand = [];
+		var player = {name: 'player', ID: 'Player 1', score: 0, Hand : Hand};
+		var dealer = {name: 'dealer', ID: 'Dealer', score: 0, Hand : Hand};
 			
 					multiplePlayers.push(player);
-					multiplePlayers.push(dealer);
+					// multiplePlayers.push(dealer);
 				
 				console.log('this is hard');
 	}
@@ -130,15 +129,14 @@ function dealHand() {
 	for (var i = 0; i< 2; i++) {
 		for (var x = 0; x < multiplePlayers.length; x++) {
 			var card = theDeck.pop();
-			playerHand = new Array();
-			dealerHand = new Array();
-			multiplePlayers[x] = playerHand.push(card);
-			multiplePlayers[x] = dealerHand.push(card);
+			Hand = new Array();
+			multiplePlayers[x].Hand.push(card);
+			multiplePlayers[x].Hand.push(card);
 			renderCard(card, x);
 			updateScore();
 		}
 	}
-	changeDeck();
+	updateDeck();
 }
 
 
@@ -176,28 +174,21 @@ function cardUI(card) {
 
 
 // This should return the number that a player has in a hand
-function scoreKeeper(player, dealer) {
+function scoreKeeper(player) {
 	var score = 0;
 	var player1 = 0;
-	var dealer = 0;
-	for (var i = 0; i < player.playerHand.length; i++) { 
-		for (var x = 0; x < dealer.dealerHand.length; i++) {
-		score += player.playerHand[i].blackJack;
-		score += dealer.dealerHand[x].blackJack;
-		try {
-			if (playerHand == 'undefined') throw "playerHand";
-			if(dealerHand == 'undefined') throw "dealerHand";
-			}
-			catch(exception) {
-				playerHand == 'undefined';
-				dealerHand == 'undefined';
-				console.log(err);
+	var card = {suit: suits[x], value: cardValues[i],  blackJack : blackJack};
+	for (var i = 0; i < multiplePlayers[1].Hand.length; i++) { 
+		for (var x = 0; x < multiplePlayers[0].Hand.length; i++) {
+		 multiplePlayers[1].Hand[i].card[2];
+		 multiplePlayers[0].Hand[x].card[2];
+		
 			}
 	}
-}
-	multiplePlayers[player].score = score;
-	multiplePlayers[dealer].score = score;
-	return score;
+
+	multiplePlayers[1].score = score;
+	multiplePlayers[0].score = score;
+	
 }
 
 function updateScore() {
@@ -209,16 +200,16 @@ function updateScore() {
 
 // provide a card from the deck to a current player with the hit function
 function hit() {
-		var currentPlayer = 0;
-		deck = new Array();
-		var playerHand = new Array();
+		
 		var card = theDeck.pop();
-		multiplePlayers[currentPlayer].playerHand.push(card);
-		multiplePlayers[currentPlayer].dealerHand.push(card);
+		console.log(multiplePlayers);
+		multiplePlayers[currentPlayer].Hand.push(card);
+		multiplePlayers[currentPlayer].Hand.push(card);
 		renderCard(card, currentPlayer);
 		updateScore();
 		loser();
 		updateDeck();
+
 
 }
 
