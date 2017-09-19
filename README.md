@@ -17,3 +17,4 @@ The functionality will need to be sorted out soon or the project won't be finish
 
 
 
+PS: Also I committed multiple times throughout the weekend but I made the mistake of trying to add files seperately instead of all at once and none of my commits went through.
