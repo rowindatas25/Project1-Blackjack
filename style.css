@@ -1,7 +1,12 @@
+
+
 body {
-	background: url("https://mxg.cdnbf.net/mexchangeblackjack/turbo/assets/gameView/tableBackground.png");
-	height: 100%;
-	width: 100%;
+	background: url("https://mxg.cdnbf.net/mexchangeblackjack/turbo/assets/gameView/tableBackground.png") no-repeat center fixed;
+	background-size: cover;
+	/*overflow: hidden;*/
+	max-height: 100%;
+	max-width: 100%;
+	
 }
 
 .blackjack {
@@ -12,7 +17,7 @@ body {
 	position: absolute;
 }
 
-.players {
+#players {
 	float: left;
 	width: 500px;
 	height: 275px;
@@ -27,16 +32,17 @@ body {
 
 
 .card {
-	background: url("http://www.bridgeworld.com/images/storeimages/merchitems200w/1255-OFC.jpg");
+	background: red;
 	height: 275px;
 	width: 200px;
-	border: 1px solid white;
+	border: 3px solid black;
 	display: inline-block;
 	border-radius: 10px;
 	font-size: 10px;
 	text-align: center;
 	margin: 1px;
-	/*position: relative;*/
+	position: relative;
+	color: white;
 }
 
 .deck {
@@ -77,6 +83,7 @@ h1 {
 	text-align: center;
 	color: red;
 	font-size: 45px;
+	font-family: 'Lobster', cursive;
 }
 
 
@@ -85,7 +92,7 @@ h1 {
 }
 
 
-#hand1, #hand2 {
+.hand1, .hand2 {
 	height: 200px;
 	border: 1px solid white;
 	width: 90%;
@@ -96,10 +103,10 @@ h1 {
 
 }
 
-.card1, .card2, .card3, .card4{
+#card1, #card2, #card3, #card4{
 		height: 120px;
 		width: 70px;
-		border: 1px solid white;
+		border: 3px solid black;
 		display: inline-block;
 		margin: 0 auto;
 		margin-top: 20px;

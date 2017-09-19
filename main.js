@@ -155,8 +155,8 @@ function dealHand() {
 
     dealCard(player);
     dealCard(dealer);
-    // dealCard(player);
-    // dealCard(dealer);
+    dealCard(player);
+    dealCard(dealer);
 
     renderCards(player);
     renderCards(dealer);
@@ -181,16 +181,16 @@ function renderCards(contender){
 
 
 function getElementTheCardShouldBeIn(contender, cardIndex) {
-	// var element = document.getElementById(contender + cardIndex);
-	// return element;
-	console.log(contender);
-	console.log(cardIndex);
+	
+	return document.querySelector("#" + contender.name);
+	
+	
 }
 
-function putCardIntoElement() {
-		
+// function putCardIntoElement() {
+			
 
-}
+// }
 
 
 function renderCard(contender, cardIndex) {
@@ -199,7 +199,7 @@ function renderCard(contender, cardIndex) {
     // - put the card there (whatever that means)
 
     var elementTheCardShouldBeIn = getElementTheCardShouldBeIn(contender, cardIndex);
-    putCardIntoElement(contender.Hand[cardIndex], elementTheCardShouldBeIn)
+    putCardIntoElement(contender.Hand[cardIndex], elementTheCardShouldBeIn);
 }
 
 
@@ -260,9 +260,9 @@ function updateScore() {
 function hit() {
 
     var card = theDeck.pop();
-    console.log(multiplePlayers);
-    multiplePlayers[currentPlayer].Hand.push(card);
-    multiplePlayers[currentPlayer].Hand.push(card);
+    // console.log(multiplePlayers);
+    // multiplePlayers[currentPlayer].Hand.push(card);
+    // multiplePlayers[currentPlayer].Hand.push(card);
     renderCard(card, currentPlayer);
     updateScore();
     loser();
@@ -316,6 +316,8 @@ var hitButton = document.getElementById('hitBtn');
 hitButton.addEventListener('click', hit);
 
 var stayButton = document.getElementById('stayBtn');
+
+stayBtn.addEventListener('click', hit);
 
 
 // stayButton.addEventListener('click', stay);
