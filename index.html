@@ -1,57 +1,43 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>Blackjack</title>
-	<link rel="stylesheet" href="style.css">
- <script type="text/javascript" src = "main.js"></script>
- <h1>Classic Blackjack</h1>
+    <title>Blackjack</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <h1>Classic Blackjack</h1>
 </head>
+
 <body>
-<div class="blackjack">
+    <div class="blackjack">
+        <button id="starter">Deal Cards</button>
+        <button id="hitBtn"> Hit me</button>
+        <button id="stayBtn"> Stay </button>
+    </div>
+    <div class="deck">
+        <div class="card" id="deckCounter"></div>
+    </div>
+    <div id="players">
+        <div id="player working" class="dealer">
+            <span><div id = "hand1" class = "hand">
 
-	<button id="starter">Deal Cards</button>
-
-	<button id = "hitBtn"> Hit me</button>
-
-	<button  id = "stayBtn"> Stay </button>
-
-
-
-</div>
-
-
-
-
-
-<div class="deck">
-	<div class="card" id = "deckCounter"></div>
-</div>
-
-
-<div class="players">
-<div id = "player working" class = "dealer">
-<span><div id = hand1>
-<div class="card1"></div>
-<div class="card2"></div>
-<div class="score"></div> 20
-
-</div></span>
-</div>
-<div id = "player" class="player1">
-	<span><div id="hand2">
-		<div class = "card3"></div> 
-		<div class="card4"></div>
-		<div class = "score"></div></span> 21
-			
-		</div>
-</div>
+<div class="card" id = "card1">
 	
 </div>
-
-
-<div class = "clear"></div>
-
-
-
+<div class="card" id = "card2"></div>
+<div class="score"></div> 20
+<div class = "contender"></div>
+</div></span>
+        </div>
+        <div id="player" class="player1">
+            <span><div id="hand2" class = "hand">
+		<div class = "card" id = "card3"></div> 
+		<div class="card" id = "card4"></div>
+		<div class = "score" id = "scores"></div></span> 21
+        </div>
+    </div>
+    </div>
+    <div class="clear"></div>
+    <script type="text/javascript" src="main.js"></script>
 </body>
 </html
