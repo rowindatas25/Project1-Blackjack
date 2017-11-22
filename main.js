@@ -5,11 +5,13 @@ var theDeck = [];
 var currentPlayer = 0;
 var player = {};
 var dealer = {};
+var score = 0;
 
+var game = {
 // iterating the value of each card and the different suits through an array for the deck.
 // Using parseInt to convert a string to a number and then assign 10 to King, Queen and Jack.
 //and 11 for Ace
-function makeDeck() {
+ makeDeck: function() {
     theDeck = new Array();
     for (var i = 0; i < cardValues.length; i++) {
         for (var x = 0; x < suits.length; x++) {
@@ -22,19 +24,28 @@ function makeDeck() {
             } else {
                 console.log('loop works!')
             }
-            var card = { suit: suits[x], value: cardValues[i], blackJack: blackJack };
+            var card = { suit: suits[x], value: cardValues[i]};
 
             theDeck.push(card);
 
 
-            console.log('it works');
+            console.log(theDeck);
         }
+
     }
-}
+    
+},
+
+	player: {
+		name: 'player', 
+		ID: 'Player 1', 
+		score: 0, 
+		Hand: []
+	},
 
 
 // Creating the player hand and players by iterating their information into the multiple player function with a dealer and player 1.
-function makePlayers(num) {
+	makePlayers: function(theCard) {
     // multiplePlayers = [];
     // for (var i = 1; i <= num; i++) {
     //     var Hand = [];
@@ -48,11 +59,11 @@ function makePlayers(num) {
     // }
      player = { name: 'player', ID: 'Player 1', score: 0, Hand: []};
      dealer = { name: 'dealer', ID: 'Dealer', score: 0, Hand: []};
-}
+},
 
 
 // creating the location where the cards will be kept and what they should print.
-function playerUI() {
+	playerUI: function() {
 
     document.getElementById('player working').innerHTML = ' Dealer';
     document.getElementById('player').innerHTML = ' Player 1 ';
@@ -87,10 +98,10 @@ function playerUI() {
         document.getElementById('players').appendChild(divDealer);
         console.log('we got this');
     }
-}
+},
 
 // shuffling the deck for every 100 turns, switch values of cards
-function shuffleCards() {
+ shuffleCards: function() {
     for (var i = 0; i < 100; i++) {
         var cardPlacement1 = Math.floor((Math.random() * theDeck.length));
         var cardPlacement2 = Math.floor((Math.random() * theDeck.length));
@@ -100,10 +111,10 @@ function shuffleCards() {
         theDeck[cardPlacement2] = spot;
     }
 
-}
+},
 
 
-function startGame() {
+startGame: function() {
 
     currentPlayer = 0;
     makeDeck();
@@ -111,32 +122,34 @@ function startGame() {
     makePlayers(2);
     playerUI();
     dealHand();
+    playGame();
     // document.getElementById('player working' + currentPlayer).addClass('dealer');
     // document.getElementById('player' + currentPlayer).addClass('player1');
     console.log('works');
 
-}
+},
 
-function takeCardFromDeck() {
+ takeCardFromDeck: function() {
 	  // - return a card
     // - remove THAT card from the deck
     var theCard = theDeck.shift();
     return theCard;
-}
+},
 
 
-function dealCard(contender) {
+ dealCard: function(contender) {
     // so takeCardFromDeck will have to
     // - return a card
     // - remove THAT card from the deck
     var theCard = takeCardFromDeck();
-    contender.Hand.push(theCard);
+    game.player.Hand.push(theCard);
+    console.log(game.player);
     // now we need to give it to the contender
 
-}
+},
 
 // give two cards to each player by alternating them
-function dealHand() {
+ dealHand: function() {
     // for (var i = 0; i < 2; i++) {
     //     for (var x = 0; x < multiplePlayers.length; x++) {
     //         console.log('in a step of dealHand; i: ' + i + "; x:" + x);
@@ -166,31 +179,61 @@ function dealHand() {
     // the score of each player needs to be recomputed
     // then the player needs to decide whether to hit or stay
     updateDeck();
-}
+},
 
+// dealHand();
 
-function renderCards(contender){
+ renderCards: function(contender){
 	// JOB:
 	// show the cards of the contender in the browser
 	// for each card:
 	// - figure out which element in the browser that card should render to
 	// - do whatever it takes to put the card there
-	renderCard(contender, 0);
-	renderCard(contender, 1);
+	renderCard(player, 0);
+	renderCard(dealer, 1);
+},
+// renderCards();
+
+playGame: function(){
+	var startButton = document.getElementById('starter');
+
+startButton.addEventListener('click', startGame);
+
+var hitButton = document.getElementById('hitBtn');
+
+hitButton.addEventListener('click', hit);
+
+var stayButton = document.getElementById('stayBtn');
+
+stayBtn.addEventListener('click', stay);
+
 }
+
+};
 
 
 function getElementTheCardShouldBeIn(contender, cardIndex) {
 	
-	return document.querySelector("#" + contender.name);
+	// var element = 
+	// var element1 =  document.createElement('div');
+	// var element2 = document.createElement('div');
+	// var element3 = document.createElement('div');
+	// var card1 = document.getElementById('card1');
+	// return element;
+	// return element1;
+	// return element2;
+	// return element3;
+	// console.log(element);
+	// card1.appendChild(element);
+
 	
 	
 }
 
-// function putCardIntoElement() {
+function putCardIntoElement(contender, cardIndex ) {
 			
 
-// }
+}
 
 
 function renderCard(contender, cardIndex) {
@@ -198,7 +241,7 @@ function renderCard(contender, cardIndex) {
     // - get the element that the card should be in
     // - put the card there (whatever that means)
 
-    var elementTheCardShouldBeIn = getElementTheCardShouldBeIn(contender, cardIndex);
+    var elementTheCardShouldBeIn = getElementTheCardShouldBeIn(player, 0);
     putCardIntoElement(contender.Hand[cardIndex], elementTheCardShouldBeIn);
 }
 
@@ -235,18 +278,18 @@ function cardUI(card) {
 // This should return the number that a player has in a hand
 function scoreKeeper(player) {
 
-    var score = 0;
-    for (var i = 0; i < multiplePlayers[player].length; i++) {
-        for (var x = 0; x < multiplePlayers[player].Hand.length; i++) {
-            var card = multiplePlayers[player].hand[card];
-            var val = card.value;
+    
+    // for (var i = 0; i < multiplePlayers[player].length; i++) {
+    //     for (var x = 0; x < multiplePlayers[player].Hand.length; i++) {
+    //         var card = multiplePlayers[player].hand[card];
+    //         var val = card.value;
 
-            multiplePlayers[player].score += value;
-        }
-    }
+    //         multiplePlayers[player].score += value;
+    //     }
+    // }
 
 
-    return val;
+    // return val;
 }
 
 function updateScore() {
@@ -307,22 +350,12 @@ function updateDeck() {
 };
 
 //window.onload = function () {
-var startButton = document.getElementById('starter');
 
-startButton.addEventListener('click', startGame);
-
-var hitButton = document.getElementById('hitBtn');
-
-hitButton.addEventListener('click', hit);
-
-var stayButton = document.getElementById('stayBtn');
-
-stayBtn.addEventListener('click', hit);
 
 
 // stayButton.addEventListener('click', stay);
-console.log('buttons work');
-makeDeck();
-shuffleCards();
-makePlayers();
+// console.log('buttons work');
+// makeDeck();
+// shuffleCards();
+// makePlayers();
 // };
