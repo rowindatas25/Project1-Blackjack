@@ -1,2 +1,14 @@
 
 
+div#display {
+	font-size: 20px;
+}
+
+.clubs, .spades {
+	color: #000000;
+}
+
+.hearts, .diamonds {
+	color: firebrick red;
+}
+
