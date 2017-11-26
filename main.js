@@ -5,6 +5,7 @@ var playerCard = [];
 var dealerCard = [];
 var counter = 0;
 var dollars = 100;
+var endPlay = false;
 const suits = ["Hearts", "Spades", "Clubs", "Diamonds"];
 const numbers = ["A", "2", "3", "4", "5", "6", "7", "8",
     "9", "10", "J", "Q", "K"];
@@ -128,6 +129,34 @@ function playCard() {
         counter++
         var val = checkTotal(playerCard);
         playerValue.innerHTML = val
+
+        if(val > 21) {
+            message.innerHTML = "Busted!";
+            stopPlay();
+        }
+}
+
+// not allowing gameplay with this function (hold/stay)
+function stopPlay() {
+    endPlay = true; 
+    document.getElementById("cover").style.display = 'none';
+    document.getElementById("actions").style.display = 'none';
+    document.getElementById("deal-button").style.displayCard = 'block';
+    document.getElementById("bet").disabled = false;
+    document.getElementById("max-bet").disabled = false;
+    message.innerHTML = "Game Over";
+
+    var dealerVal = checkTotal(dealerCard);
+    dealerValue.innerHTML = dealerVal;
+
+    while (dealerVal < 17) {
+        dealerCard.push(cards[counter]);
+        dealerHand.innerHTML += cardRendering(counter, (dealerCard.length - 1));
+        counter++;
+        dealerVal = checkTotal(dealerCard);
+        dealerValue.innerHTML = dealerVal;
+    }
+    
 }
 
 // function to check the total score of the player and dealer
