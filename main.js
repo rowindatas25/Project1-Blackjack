@@ -12,6 +12,8 @@ const message = document.getElementById("message");
 const display = document.getElementById("display");
 const playerHand = document.getElementById("playerHand");
 const dealerHand = document.getElementById("dealerHand");
+var playerValue = document.getElementById("playerValue");
+var dealerValue = document.getElementById("dealerValue");
 
 
 // Assigning values and colors to suits with use of a for .. in loop
@@ -93,6 +95,57 @@ function deal() {
 function cardRendering(n, y) {
 
     return '<div class="card '+cards[n].icon+'"> <div class="top-card suit">'+cards[n].cardNumber+'<br></div> <div class="middle-card suit"></div> <div class="bottom-card suit">'+cards[n].cardNumber+'<br></div></div>';
+}
+
+// function to set actions for the hit, double, or hold
+
+function cardAction(act) {
+    console.log(act);
+    switch(act) {
+        case 'hit':
+            playCard(); // add new card to player's hand
+            break;
+        case 'hold':
+            stopPlay(); // add cards to each other and calculate
+            break;
+        case 'double':
+            // double current bet and remove value from dollars variable set to 100
+            playCard();
+            stopPlay();
+            break;
+        default:
+            console.log('done');
+            stopPlay();
+
+    }
+}
+
+// adding a new card to the players hand if they hit
+
+function playCard() {
+        playerCard.push(cards[counter]);
+        playerHand.innerHTML += cardRendering(counter, (playerCard.length - 1));
+        counter++
+        var val = checkTotal(playerCard);
+        playerValue.innerHTML = val
+}
+
+// function to check the total score of the player and dealer
+
+function checkTotal(arr) {  
+    var valHolder = 0;
+    var aceCounter = false;
+    for (var i in arr) {
+        if(arr[i].cardNumber == 'A' && !aceCounter) {
+            aceCounter = true;
+            valHolder = valHolder + 10;
+        }
+            valHolder = valHolder + arr[i].value;
+    }
+        if(aceCounter && valHolder > 21 ) {
+            valHolder = valHolder - 10;
+        }
+        return valHolder;
 }
 
 // function that shuffles the deck
