@@ -15,6 +15,7 @@ const playerHand = document.getElementById("playerHand");
 const dealerHand = document.getElementById("dealerHand");
 var playerValue = document.getElementById("playerValue");
 var dealerValue = document.getElementById("dealerValue");
+var dollarValue = document.getElementById("dollars");
 
 
 // Assigning values and colors to suits with use of a for .. in loop
@@ -86,6 +87,7 @@ function deal() {
         counter++
     }
 
+    playerValue.innerHTML = checkTotal(playerCard);
     console.log(dealerCard);
     console.log(playerCard);
 }
@@ -128,7 +130,7 @@ function playCard() {
         playerHand.innerHTML += cardRendering(counter, (playerCard.length - 1));
         counter++
         var val = checkTotal(playerCard);
-        playerValue.innerHTML = val
+        playerValue.innerHTML = val;
 
         if(val > 21) {
             message.innerHTML = "Busted!";
@@ -144,10 +146,12 @@ function stopPlay() {
     document.getElementById("deal-button").style.displayCard = 'block';
     document.getElementById("bet").disabled = false;
     document.getElementById("max-bet").disabled = false;
-    message.innerHTML = "Game Over";
-
+    message.innerHTML = "Game Over ";
+    var blackjackPayout = 1;
     var dealerVal = checkTotal(dealerCard);
     dealerValue.innerHTML = dealerVal;
+
+    // while loop for dealer when score is less than 17
 
     while (dealerVal < 17) {
         dealerCard.push(cards[counter]);
@@ -156,6 +160,41 @@ function stopPlay() {
         dealerVal = checkTotal(dealerCard);
         dealerValue.innerHTML = dealerVal;
     }
+
+    // This is a conditional to payout the player if they get a 21 exactly
+
+     var playerVal = checkTotal(playerCard);
+     if(playerVal == 21 && playerCard.length == 21) {
+        message.innerHTML = "Player Blackjack";
+        blackjackPayout = 1.5;
+     }
+
+     // Conditionals to determine who wins game and paying out the player if they've won.
+
+     var betValue = parseInt(document.getElementById("bet").value) * blackjackPayout;
+
+     if ((playerVal < 22 && dealerVal < playerVal) || (dealerVal > 21 && playerVal < 22)) {
+        message.innerHTML += 'You win! You won $' + betValue;
+        dollars = dollars + (betValue * 2)
+     }
+
+     else if (playerVal > 21)  {
+        message.innerHTML += 'Dealer wins, you lost!';
+     }
+
+     else if (playerVal == dealerVal) {
+        message.innerHTML += 'PUSH';
+        dollars = dollars + betValue;
+     }
+
+     else {
+        message.innerHTML += 'Dealer wins, you lost!';
+     }
+
+
+
+     playerValue.innerHTML = dealerVal;
+     dollarValue.innerHTML = dollars;
     
 }
 
