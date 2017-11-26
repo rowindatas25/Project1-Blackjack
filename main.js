@@ -1,4 +1,4 @@
-// Creating Deck
+// Global Variables
 
 const cards = [];
 var playerCard = [];
@@ -9,15 +9,25 @@ var endPlay = false;
 const suits = ["Hearts", "Spades", "Clubs", "Diamonds"];
 const numbers = ["A", "2", "3", "4", "5", "6", "7", "8",
     "9", "10", "J", "Q", "K"];
-const message = document.getElementById("message");
-const display = document.getElementById("display");
-const playerHand = document.getElementById("playerHand");
-const dealerHand = document.getElementById("dealerHand");
-var playerValue = document.getElementById("playerValue");
-var dealerValue = document.getElementById("dealerValue");
-var dollarValue = document.getElementById("dollars");
+// Used to test for aces to make sure our values at 1 or 11 are working.
 
-document.getElementById("bet").onchange = function () {
+// const numbers = ["A", "A", "A", "A", "A", "A", "A", "A",
+//     "A", "A", "A", "A", "A"];
+
+
+// Variables for DOM manipuation
+
+const message = document.getElementById('message');
+const display = document.getElementById('display');
+const playerHand = document.getElementById('playerHand');
+const dealerHand = document.getElementById('dealerHand');
+var playerValue = document.getElementById('playerValue');
+var dealerValue = document.getElementById('dealerValue');
+var dollarValue = document.getElementById('dollars');
+
+// Event listener for betting
+
+document.getElementById('bet').onchange = function () {
     if (this.value < 0) {
         this.value = 0;
     }
@@ -27,12 +37,16 @@ document.getElementById("bet").onchange = function () {
     }
 }
 
+// Creating Deck
 // Assigning values and colors to suits with use of a for .. in loop
+
 for (s in suits) {
     const suit = suits[s][0].toUpperCase();
     const backgroundColor = (suit == "S" || suit == "C") ? "black" : "red"
     for (n in numbers) {
         const value = (n > 9) ? 10 : parseInt(n) + 1
+        // Used for ace test
+        // const value = 1;
         const card = {
             suit: suit,
             icon: suits[s],
@@ -53,7 +67,7 @@ function start() {
     shuffleCards(cards);
     dealCard();
     document.getElementById("start").style.display = 'none';
-    document.getElementById("dollars").innerHTML = dollars;
+    dollarValue.innerHTML = dollars;
  
 
 }
@@ -84,7 +98,7 @@ function dealCard() {
     var betValue = document.getElementById("bet").value;
     dollars = dollars - betValue;
     document.getElementById("dollars").innerHTML = dollars;
-    document.getElementById("actions").style.display = 'block';
+    document.getElementById("actions").style.display = 'flex';
     message.innerHTML = "Get up to 21 and beat the dealer to win!<br>Your Current Bet is $"+betValue;
     document.getElementById("bet").disabled = true;
     document.getElementById("max-bet").disabled = true;
@@ -110,9 +124,12 @@ function deal() {
         redealCards();
     }
 
+    var playerVal = checkTotal(playerCard);
+    if(playerVal == 21 && playerCard.length == 2) {
+        stopPlay();
+     }
     playerValue.innerHTML = checkTotal(playerCard);
-    console.log(dealerCard);
-    console.log(playerCard);
+    
 }
 
 
@@ -180,11 +197,12 @@ function playCard() {
 }
 
 // not allowing gameplay with this function (hold/stay)
+// disable max bet input from being changed and hiding the buttons while in gameplay.
 function stopPlay() {
     endPlay = true; 
     document.getElementById("cover").style.display = 'none';
     document.getElementById("actions").style.display = 'none';
-    document.getElementById("deal-button").style.displayCard = 'block';
+    document.getElementById("deal-button").style.displayCard = 'flex';
     document.getElementById("bet").disabled = false;
     document.getElementById("max-bet").disabled = false;
     message.innerHTML = "Game Over <br> ";
@@ -205,7 +223,7 @@ function stopPlay() {
     // This is a conditional to payout the player if they get a 21 exactly
 
      var playerVal = checkTotal(playerCard);
-     if(playerVal == 21 && playerCard.length == 21) {
+     if(playerVal == 21 && playerCard.length == 2) {
         message.innerHTML = "Player Blackjack";
         blackjackPayout = 1.5;
      }
@@ -242,8 +260,11 @@ function stopPlay() {
 // function to check the total score of the player and dealer
 
 function checkTotal(arr) {  
+    // container for value of the card to check the total
     var valHolder = 0;
+    // set to false because we have yet to draw an ace yet
     var aceCounter = false;
+    // looping through array that sets ace counter to true when an ace is drawn from array of cards. It adds 10 to the first ace drawn so it has a value of 11.
     for (var i in arr) {
         if(arr[i].cardNumber == 'A' && !aceCounter) {
             aceCounter = true;
@@ -251,6 +272,7 @@ function checkTotal(arr) {
         }
             valHolder = valHolder + arr[i].value;
     }
+    // This conditional sends the value for another ace back to 1 if there's already an ace in the hand. This will allow the user to not go over 21 if they have a second ace.
         if(aceCounter && valHolder > 21 ) {
             valHolder = valHolder - 10;
         }

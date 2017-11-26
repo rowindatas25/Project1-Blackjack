@@ -1,108 +1,117 @@
+body {
 
+    background: url("https://ie1-gfebf.cdnppb.net/mexchangeblackjack/turbo/17/assets/gameView/tableBackground.png?v17") no-repeat center fixed;
+    background-size: cover;
+    max-height: 100%;
+    max-width: 100%;
+}
 
 div#display {
-	font-size: 20px;
-	display: flex;
+    font-size: 20px;
+    display: flex;
 }
 
-#deal-button, #actions, {
-	display: none;
+#deal-button,
+#actions,
+{
+    display: none;
 }
 
-.deal-btn, .hold-btn, .double-btn, .hit-btn, .start-btn, .bet-btn {
-	border-radius: 5px;
-	padding: 5px 10px;
-	color: #ffffff;
-	background-color: #470FF4;
-
+.deal-btn,
+.hold-btn,
+.double-btn,
+.hit-btn,
+.start-btn,
+.bet-btn {
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: #ffffff;
+    background-color: #470FF4;
 }
 
 
 
 #cover {
-	display: flex;
-	width: 150px;
-	height: 200px;
-	background-color: gray;
-	border-radius: 5px;
-	border: 1px solid black;
-	padding: 5px;
-	down: 100px;
-	position: absolute;
+    display: flex;
+    width: 150px;
+    height: 200px;
+    background-color: gray;
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 5px;
+    down: 100px;
+    position: absolute;
 }
 
-.clubs, .spades {
-	color: #000000;
+.clubs,
+.spades {
+    color: #000000;
 }
 
-.hearts, .diamonds {
-	color: red;
+.hearts,
+.diamonds {
+    color: red;
 }
 
 .card {
-	display: flex;
-	justify-content: column;
-	width: 150px;
-	height: 200px;
-	padding: 5px;
-	border: 1px solid black;
-	background-color: white;
-	border-radius: 5px;
-	font-family: 'Lato', sans-serif;
+    display: flex;
+    justify-content: column;
+    width: 150px;
+    height: 200px;
+    padding: 5px;
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 5px;
+    font-family: 'Lato', sans-serif;
 }
 
-.top-card  {
-	font-size: 30px;
-	line-height: 30px;
+.top-card {
+    font-size: 30px;
+    line-height: 30px;
 }
 
 .middle-card {
-	text-align: center;
-	font-size: 70px;
-	margin-top: 40px;
+    text-align: center;
+    font-size: 70px;
+    margin-top: 40px;
 }
 
-.bottom-card  {
-	font-size: 30px;
-	line-height: 30px;
-	margin-top: 150px;
-	margin-left: 85px;
-	/*transform: rotate(-180deg);
+.bottom-card {
+    font-size: 30px;
+    line-height: 30px;
+    margin-top: 150px;
+    margin-left: 85px;
+    /*transform: rotate(-180deg);
 	-webkit-transform: rotate(-180deg);
 	-mos-transform: rotate(-180deg);
 	-ms-transform: rotate(-180deg);
 	-o-transform: rotate(-180deg);*/
-	
 }
 
 .hearts .suit::after {
-	content: '\2665';
+    content: '\2665';
 }
 
 .diamonds .suit::after {
-	content: '\2666';
+    content: '\2666';
 }
 
 .spades .suit::after {
-	content: '\2660';
+    content: '\2660';
 }
 
 .clubs .suit::after {
-	content: '\2663';
+    content: '\2663';
 }
 
-#dealerHand, #playerHand {
-	height: 500px;
-	width: 300px;
+#dealerHand,
+#playerHand {
+    height: 500px;
+    width: 300px;
 }
 
 #message {
-	height: 70px;
-	font-size: 30px;
-	text-align: center;
-
+    height: 70px;
+    font-size: 30px;
+    text-align: center;
 }
-
-
-
-
