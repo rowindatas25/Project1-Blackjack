@@ -11,7 +11,12 @@
 <body>
 
     <div>
-        <div id="message"> Press Start Button </div>
+        <div><h1>Classic Blackjack</h1>
+        <div class="total">Total Money Left: <span id="dollars">$100</span></div>
+        <div>Bet Amount <input type="number" id="bet" value="5" min="1", max="100"><button id="max-bet" type="button" onclick="maxbet()" class="bet-btn">All In</button>
+        </div>
+        </div>
+        <div id="message">Press Start Button</div>
         <div id="start">
             <button id="start-button" type="button" onClick="start()" class="start-btn"> Start Game</button>
         </div>
@@ -19,11 +24,23 @@
 
     <div id="display">
     
-    Dealer Hand: <div id="dealerHand"></div>
-    Player Hand: <div id="playerHand"></div>
+    Dealer Hand:  <span id="dealerValue"></span>
+    <div id="dealerHand"></div>
+    Player Hand: <span id="playerValue"></span>
+    <div id="playerHand"></div>
+                 <div id="actions">
+                     <button id="hold-button" type="button" onclick="cardAction('hold')" class="hold-btn">Hold</button>
+                     <button id="hit-button" type="button" onclick="cardAction('hit')" class="hit-btn">Hit</button>
+                     <button id="double-button" type="button" onclick="cardAction('double')" class="double-btn">Double</button>
+                 </div>
+                <br>
+                 <div>
+                     <button id="deal-button" type="button" onclick="dealCard()" class="deal-btn">Deal</button>
+                 </div>
 
     </div>
 
+    
    <!--  <div class="card hearts">
         <div class="top-card suit"><br></div>
         <div class="middle-card suit"></div>

@@ -4,9 +4,11 @@ const cards = [];
 var playerCard = [];
 var dealerCard = [];
 var counter = 0;
+var dollars = 100;
 const suits = ["Hearts", "Spades", "Clubs", "Diamonds"];
 const numbers = ["A", "2", "3", "4", "5", "6", "7", "8",
     "9", "10", "J", "Q", "K"];
+const message = document.getElementById("message");
 const display = document.getElementById("display");
 const playerHand = document.getElementById("playerHand");
 const dealerHand = document.getElementById("dealerHand");
@@ -37,6 +39,8 @@ function start() {
     
     shuffleCards(cards)
     dealCard();
+    document.getElementById("start").style.display = 'none';
+    document.getElementById("dollars").innerHTML = dollars;
  
 
 }
@@ -48,22 +52,46 @@ function dealCard() {
     dealerCard = [];
     playerHand.innerHTML = "";
     dealerHand.innerHTML = ""; 
+
+    // selecting bet input to subtract value of bet from 100 dollar total
+
+    var betValue = document.getElementById("bet").value;
+    dollars = dollars - betValue;
+    document.getElementById("dollars").innerHTML = dollars;
+    document.getElementById("actions").style.display = 'block';
+    message.innerHTML = "Get up to 21 and beat the dealer to win!<br>Your Current Bet is $"+betValue;
+    document.getElementById("bet").disabled = true;
+    document.getElementById("max-bet").disabled = true;
+    deal();
+
+}
+
+ // Looping through each set of cards for the dealer and player
+
+
+function deal() {
+   console.log(cards);
     for (var y = 0 ; y < 2; y++) {
         dealerCard.push(cards[counter]);
         dealerHand.innerHTML += cardRendering(counter, y);
+        if(y==0) {
+            dealerHand.innerHTML += '<div id="cover"></div>'
+        }
         counter++
         playerCard.push(cards[counter]);
         playerHand.innerHTML += cardRendering(counter, y);
         counter++
     }
+
     console.log(dealerCard);
     console.log(playerCard);
 }
 
+
 // function to render multiple cards
 
 function cardRendering(n, y) {
-    const hpos = (y > 0) ? y * 60 + 100 : 100;
+
     return '<div class="card '+cards[n].icon+'"> <div class="top-card suit">'+cards[n].cardNumber+'<br></div> <div class="middle-card suit"></div> <div class="bottom-card suit">'+cards[n].cardNumber+'<br></div></div>';
 }
 
