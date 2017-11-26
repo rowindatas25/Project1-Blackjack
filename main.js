@@ -17,6 +17,15 @@ var playerValue = document.getElementById("playerValue");
 var dealerValue = document.getElementById("dealerValue");
 var dollarValue = document.getElementById("dollars");
 
+document.getElementById("bet").onchange = function () {
+    if (this.value < 0) {
+        this.value = 0;
+    }
+    if (this.value > dollars){
+        this.value = dollars;
+        message.innerHTML = "Bet changed to $"+this.value;
+    }
+}
 
 // Assigning values and colors to suits with use of a for .. in loop
 for (s in suits) {
@@ -41,7 +50,7 @@ for (s in suits) {
 
 function start() {
     
-    shuffleCards(cards)
+    shuffleCards(cards);
     dealCard();
     document.getElementById("start").style.display = 'none';
     document.getElementById("dollars").innerHTML = dollars;
@@ -49,9 +58,22 @@ function start() {
 
 }
 
+// function to reshuffle cards at any point when called upon
+
+function redealCards() {
+    counter++;
+    if (counter > 40) {
+    console.log("new deck!");
+    shuffleCards(cards);
+    counter = 0;
+    message.innerHTML = "New Shuffle";
+    }
+}
+
 // Deal out cards function with a for loop involving two cards
 
 function dealCard() {
+    dealerValue.innerHTML = "?";
     playerCard = [];
     dealerCard = [];
     playerHand.innerHTML = "";
@@ -67,6 +89,7 @@ function dealCard() {
     document.getElementById("bet").disabled = true;
     document.getElementById("max-bet").disabled = true;
     deal();
+    // document.getElementById("deal-button").style.display = 'none';
 
 }
 
@@ -81,10 +104,10 @@ function deal() {
         if(y==0) {
             dealerHand.innerHTML += '<div id="cover"></div>'
         }
-        counter++
+        redealCards();
         playerCard.push(cards[counter]);
         playerHand.innerHTML += cardRendering(counter, y);
-        counter++
+        redealCards();
     }
 
     playerValue.innerHTML = checkTotal(playerCard);
@@ -98,6 +121,13 @@ function deal() {
 function cardRendering(n, y) {
 
     return '<div class="card '+cards[n].icon+'"> <div class="top-card suit">'+cards[n].cardNumber+'<br></div> <div class="middle-card suit"></div> <div class="bottom-card suit">'+cards[n].cardNumber+'<br></div></div>';
+}
+
+// function for user to go "All in" and bet all their money
+
+function maxBet() {
+    document.getElementById("bet").value = dollars;
+    message.innerHTML = "Bet changed to $" + dollars;
 }
 
 // function to set actions for the hit, double, or hold
@@ -146,7 +176,7 @@ function stopPlay() {
     document.getElementById("deal-button").style.displayCard = 'block';
     document.getElementById("bet").disabled = false;
     document.getElementById("max-bet").disabled = false;
-    message.innerHTML = "Game Over ";
+    message.innerHTML = "Game Over <br> ";
     var blackjackPayout = 1;
     var dealerVal = checkTotal(dealerCard);
     dealerValue.innerHTML = dealerVal;
@@ -193,7 +223,7 @@ function stopPlay() {
 
 
 
-     playerValue.innerHTML = dealerVal;
+     playerValue.innerHTML = playerVal;
      dollarValue.innerHTML = dollars;
     
 }
