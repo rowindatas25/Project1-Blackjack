@@ -140,8 +140,19 @@ function cardAction(act) {
             break;
         case 'hold':
             stopPlay(); // add cards to each other and calculate
-            break;
-        case 'double':
+            break;            
+        case 'double': // grabbing the bet value and turning it into an integer while also allowing user to double their bet with this conditional statement.
+            var betValue = parseInt(document.getElementById("bet").value);
+            if((dollars - betValue < 0)) {
+                betValue = betValue + dollars;
+                dollars = 0;
+            }else {
+                dollars = dollars - betValue;
+                betValue = betValue * 2;
+            }
+
+                document.getElementById("dollars").innerHTML = dollars;
+                document.getElementById("bet").value = betValue; 
             // double current bet and remove value from dollars variable set to 100
             playCard();
             stopPlay();
