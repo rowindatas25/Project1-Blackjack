@@ -5,3 +5,7 @@ body {
  max-width: 100%;
  	
   }
+
+  h1, h3, ul {
+			color: #ffffff;
+  }
