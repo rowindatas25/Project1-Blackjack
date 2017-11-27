@@ -1,53 +1,60 @@
 body {
- background: url("https://ie1-gfebf.cdnppb.net/mexchangeblackjack/turbo/17/assets/gameView/tableBackground.png?v17") no-repeat center fixed;
- background-size: cover;
- max-height: 100%;
- max-width: 100%;
- 	
-  }
+    background: url("https://ie1-gfebf.cdnppb.net/mexchangeblackjack/turbo/17/assets/gameView/tableBackground.png?v17") no-repeat center fixed;
+    background-size: cover;
+    max-height: 100%;
+    max-width: 100%;
+}
 
-  h1, h2, ul {
-			color: #F1F7EE;
-			font-family: 'Lato', sans-serif;
-  }
+h1 {
+	font-size: 40px;
+}
 
-  ul {
-  	font-size: 20px;
-  	line-height: 50px;
-  }
+h1,
+h2,
+ul {
+    color: #F1F7EE;
+    font-family: 'Lato', sans-serif;
+}
 
-  h1, h2 {
-  	text-align: center;
-  }
+ul {
+    font-size: 20px;
+    line-height: 50px;
+}
 
-  .container {
-  	display: flex;
-  	justify-content: center;
-  }
+h1,
+h2 {
+    text-align: center;
+}
 
-  .instructions, {
-  	display: flex;
-  	align-content: column;
-  	align-items: center;
-  }
+.container {
+    display: flex;
+    justify-content: center;
+}
 
-  .start-game {
-  	display: flex;
-  	justify-content: center;
-  	align-content: column;
-  	align-items: center;
+.instructions,
+{
+    display: flex;
+    align-content: column;
+    align-items: center;
+}
 
-  }
+.start-game {
+    display: flex;
+    justify-content: center;
+    align-content: column;
+    align-items: center;
+}
 
-  button {
-  	border-radius: 5px;
+button {
+    border-radius: 5px;
     padding: 5px 10px;
     color: #ffffff;
     background-color: #9B6B2B;
-  }
+    min-width: 60px;
+    min-height: 25px;
+}
 
-  a {
-  	text-decoration: none;
-  	color: #ffffff;
-  }
-
+a {
+    text-decoration: none;
+    color: #ffffff;
+}

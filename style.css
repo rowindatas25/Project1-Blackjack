@@ -6,16 +6,93 @@ body {
     max-width: 100%;
 }
 
-div#display {
-    font-size: 20px;
-    display: flex;
-    
+h1 {
+	font-size: 40px;
+	text-align: center;
 }
 
+.container {
+	display: flex;
+	justify-content: center;
+}
+
+div#display {
+	
+   font-size: 20px;
+   line-height: 30px;
+   
+
+}
+
+
+div.game-play {
+	display: flex;
+	justify-content: center;
+	align-content: column;
+  align-items: column;
+}
+
+div#dealerHand, div#playerHand {
+	display: flex;
+	justify-content: row;
+	align-content: flex-start;
+  align-items: center;
+
+}
+
+h4 {
+	text-align: center;
+	margin-left: 150px;
+}
+
+input {
+	margin-right: 10px;
+}
+
+
+
+
 div.total, div.bet-div {
+	display: flex;
+	font-size: 18px;
+	justify-content: center;
 	color: #F1F7EE;
 	font-family: 'Lato', sans-serif;
+
 }
+
+div#actions {
+	display: flex;
+	justify-content: center;
+  align-content: column;
+  align-items: center;
+
+}
+
+
+
+.button-div, #start {
+	display: flex;
+	justify-content: center;
+  align-content: column;
+  align-items: center;
+}
+
+.player, .dealer {
+	display: flex;
+	justify-content: center; 
+  align-content: center;
+ 
+}
+
+#dealerValue, #playerValue {
+	display: flex;
+	justify-content: row; 
+  align-items: 
+}
+
+
+
 
 h1, span, h3, h4, div#message {
 	color: #F1F7EE;
@@ -38,13 +115,15 @@ h1, span, h3, h4, div#message {
     padding: 5px 10px;
     color: #ffffff;
     background-color: #9B6B2B;
+    min-width: 60px;
+    min-height: 25px;
 }
 
 
 
 #cover {
     display: flex;
-    width: 150px;
+    width: 140px;
     height: 200px;
     background-color: gray;
     border-radius: 5px;
@@ -52,15 +131,17 @@ h1, span, h3, h4, div#message {
     padding: 5px;
     down: 100px;
     position: absolute;
+
+
 }
 
-.clubs,
-.spades {
+.Clubs,
+.Spades {
     color: #000000;
 }
 
-.hearts,
-.diamonds {
+.Hearts,
+.Diamonds {
     color: red;
 }
 
@@ -84,34 +165,34 @@ h1, span, h3, h4, div#message {
 .middle-card {
     text-align: center;
     font-size: 70px;
-    margin-top: 40px;
+    margin-top: 85px;
 }
 
 .bottom-card {
     font-size: 30px;
     line-height: 30px;
     margin-top: 150px;
-    margin-left: 85px;
-    /*transform: rotate(-180deg);
+   /* margin-left: 85px;*/
+    transform: rotate(-180deg);
 	-webkit-transform: rotate(-180deg);
 	-mos-transform: rotate(-180deg);
 	-ms-transform: rotate(-180deg);
-	-o-transform: rotate(-180deg);*/
+	-o-transform: rotate(-180deg);
 }
 
-.hearts .suit::after {
+.Hearts .suit::after {
     content: '\2665';
 }
 
-.diamonds .suit::after {
+.Diamonds .suit::after {
     content: '\2666';
 }
 
-.spades .suit::after {
+.Spades .suit::after {
     content: '\2660';
 }
 
-.clubs .suit::after {
+.Clubs .suit::after {
     content: '\2663';
 }
 
@@ -123,6 +204,11 @@ h1, span, h3, h4, div#message {
 
 #message {
     height: 70px;
-    font-size: 30px;
+    font-size: 20px;
     text-align: center;
 }
+
+
+
+
+

@@ -6,44 +6,48 @@
     
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    
+
     <title>Blackjack</title>
 </head>
 <body>
     <div class="container">
-    <div>
-        <div><h1>Classic Blackjack</h1>
+    
+
+    <div id="display">
+    <div class="blackjack">
+        <div class="header"><h1>Classic Blackjack</h1>
             <div id="message"><h3>Press Start Button</h3></div>
              <div id="start">
             <button id="start-button" type="button" onClick="start()" class="start-btn"> Start Game</button>
+
         </div>
-        <div class="total">Total Money Left: <span id="dollars">$100</span></div>
-        <div class="bet-div">Bet Amount <input type="number" id="bet" value="5" min="1", max="100"><button id="max-bet" type="button" onclick="maxBet()" class="bet-btn">All In</button>
+        <div class="total">Total Money Left: <span id="dollars">  $100</span></div>
+        <div class="bet-div">Bet Amount:  <input type="number" id="bet" value="5" min="1", max="100"><button id="max-bet" type="button" onclick="maxBet()" class="bet-btn">All In</button>
         </div>
         </div>
         
        
-    </div>
-
-    <div id="display">
     
-    <h4>Dealer Hand:</h4>  <span id="dealerValue"></span>
+    <div class="game-play">
+    <div class="dealer"><h4>Dealer Hand: </h4>  <span id="dealerValue"></span></div>
     <div id="dealerHand"></div>
-    <h4>Player Hand:</h4> <span id="playerValue"></span>
+    <div class="player"><h4>Player Hand: </h4>  <span id="playerValue"></span></div>
     <div id="playerHand"></div>
+    </div>
                  
                 <br>
-                 <div>
+                
                     <div id="actions">
                      <button id="hold-button" type="button" onclick="cardAction('hold')" class="hold-btn">Stay</button>
                      <button id="hit-button" type="button" onclick="cardAction('hit')" class="hit-btn">Hit</button>
                      <button id="double-button" type="button" onclick="cardAction('double')" class="double-btn">Double</button>
-                 </div>
-                     <button id="deal-button" type="button" onclick="dealCard()" class="deal-btn">Deal</button>
-                 </div>
+
+              
+                    </div>
+                     <div class="button-div"><button id="deal-button" type="button" onclick="dealCard()" class="deal-btn">Deal</button></div>
 
     </div>
-
+    </div>
     </div>
     
    <!--  <div class="card hearts">
