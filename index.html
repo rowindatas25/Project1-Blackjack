@@ -6,18 +6,19 @@
     
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    
     <title>Blackjack</title>
 </head>
 <body>
     <div class="container">
     <div>
         <div><h1>Classic Blackjack</h1>
-            <div id="message">Press Start Button</div>
+            <div id="message"><h3>Press Start Button</h3></div>
              <div id="start">
             <button id="start-button" type="button" onClick="start()" class="start-btn"> Start Game</button>
         </div>
         <div class="total">Total Money Left: <span id="dollars">$100</span></div>
-        <div>Bet Amount <input type="number" id="bet" value="5" min="1", max="100"><button id="max-bet" type="button" onclick="maxBet()" class="bet-btn">All In</button>
+        <div class="bet-div">Bet Amount <input type="number" id="bet" value="5" min="1", max="100"><button id="max-bet" type="button" onclick="maxBet()" class="bet-btn">All In</button>
         </div>
         </div>
         
@@ -26,9 +27,9 @@
 
     <div id="display">
     
-    Dealer Hand:  <span id="dealerValue"></span>
+    <h4>Dealer Hand:</h4>  <span id="dealerValue"></span>
     <div id="dealerHand"></div>
-    Player Hand: <span id="playerValue"></span>
+    <h4>Player Hand:</h4> <span id="playerValue"></span>
     <div id="playerHand"></div>
                  
                 <br>

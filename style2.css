@@ -6,6 +6,48 @@ body {
  	
   }
 
-  h1, h3, ul {
-			color: #ffffff;
+  h1, h2, ul {
+			color: #F1F7EE;
+			font-family: 'Lato', sans-serif;
   }
+
+  ul {
+  	font-size: 20px;
+  	line-height: 50px;
+  }
+
+  h1, h2 {
+  	text-align: center;
+  }
+
+  .container {
+  	display: flex;
+  	justify-content: center;
+  }
+
+  .instructions, {
+  	display: flex;
+  	align-content: column;
+  	align-items: center;
+  }
+
+  .start-game {
+  	display: flex;
+  	justify-content: center;
+  	align-content: column;
+  	align-items: center;
+
+  }
+
+  button {
+  	border-radius: 5px;
+    padding: 5px 10px;
+    color: #ffffff;
+    background-color: #9B6B2B;
+  }
+
+  a {
+  	text-decoration: none;
+  	color: #ffffff;
+  }
+

@@ -9,6 +9,17 @@ body {
 div#display {
     font-size: 20px;
     display: flex;
+    
+}
+
+div.total, div.bet-div {
+	color: #F1F7EE;
+	font-family: 'Lato', sans-serif;
+}
+
+h1, span, h3, h4, div#message {
+	color: #F1F7EE;
+	font-family: 'Lato', sans-serif;
 }
 
 #deal-button,
@@ -26,7 +37,7 @@ div#display {
     border-radius: 5px;
     padding: 5px 10px;
     color: #ffffff;
-    background-color: #470FF4;
+    background-color: #9B6B2B;
 }
 
 
