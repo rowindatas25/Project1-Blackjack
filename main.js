@@ -224,7 +224,7 @@ function stopPlay() {
 
      var playerVal = checkTotal(playerCard);
      if(playerVal == 21 && playerCard.length == 2) {
-        message.innerHTML = "Player Blackjack";
+        message.innerHTML = "Player Blackjack ";
         blackjackPayout = 1.5;
      }
 
@@ -233,7 +233,7 @@ function stopPlay() {
      var betValue = parseInt(document.getElementById("bet").value) * blackjackPayout;
 
      if ((playerVal < 22 && dealerVal < playerVal) || (dealerVal > 21 && playerVal < 22)) {
-        message.innerHTML += 'You win! You won $' + betValue;
+        message.innerHTML += ' You win! You won $' + betValue;
         dollars = dollars + (betValue * 2)
      }
 

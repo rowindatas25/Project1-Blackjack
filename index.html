@@ -19,19 +19,19 @@
             <div id="message"><h3>Press Start Button</h3></div>
              <div id="start">
             <button id="start-button" type="button" onClick="start()" class="start-btn"> Start Game</button>
-
         </div>
-        <div class="total">Total Money Left: <span id="dollars">  $100</span></div>
-        <div class="bet-div">Bet Amount:  <input type="number" id="bet" value="5" min="1", max="100"><button id="max-bet" type="button" onclick="maxBet()" class="bet-btn">All In</button>
+        <br>
+        <div class="total">Total Money Left: $ <span id="dollars">  100</span></div>
+        <br>
+        <div class="bet-div">Bet Amount: $ <input type="number" id="bet" value="5" min="1", max="100"><button id="max-bet" type="button" onclick="maxBet()" class="bet-btn">All In</button>        
         </div>
         </div>
         
-       
-    
+      <div class="scores"> 
+      <div class="dealer"><h4 class="deal">Dealer Hand:  </h4>  <span id="dealerValue"> </span></div>  <div class="player"><h4 class="play">Player Hand: </h4>  <span id="playerValue"> </span></div></div> 
+        
     <div class="game-play">
-    <div class="dealer"><h4>Dealer Hand: </h4>  <span id="dealerValue"></span></div>
     <div id="dealerHand"></div>
-    <div class="player"><h4>Player Hand: </h4>  <span id="playerValue"></span></div>
     <div id="playerHand"></div>
     </div>
                  
@@ -50,26 +50,6 @@
     </div>
     </div>
     
-   <!--  <div class="card hearts">
-        <div class="top-card suit"><br></div>
-        <div class="middle-card suit"></div>
-        <div class="bottom-card suit">10<br></div>
-    </div>
-     <div class="card spades">
-        <div class="top-card suit"><br></div>
-        <div class="middle-card suit"></div>
-        <div class="bottom-card suit">10<br></div>
-    </div>
-     <div class="card diamonds">
-        <div class="top-card suit"><br></div>
-        <div class="middle-card suit"></div>
-        <div class="bottom-card suit">10<br></div>
-    </div>
-     <div class="card clubs">
-        <div class="top-card suit"><br></div>
-        <div class="middle-card suit"></div>
-        <div class="bottom-card suit"><br></div>
-    </div> -->
     
 </body>
 <script src="main.js"></script>
