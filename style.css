@@ -1,3 +1,8 @@
+/*Start of CSS*/
+
+
+/*Start of header CSS*/
+
 body {
 
     background: url("https://ie1-gfebf.cdnppb.net/mexchangeblackjack/turbo/17/assets/gameView/tableBackground.png?v17") no-repeat center fixed;
@@ -6,9 +11,23 @@ body {
     max-width: 100%;
 }
 
+h1, span, h3, h4, div#message {
+	color: #F1F7EE;
+	font-family: 'Lato', sans-serif;
+}
+
 h1 {
 	font-size: 40px;
 	text-align: center;
+}
+
+div.total, div.bet-div {
+	display: flex;
+	font-size: 18px;
+	justify-content: center;
+	color: #F1F7EE;
+	font-family: 'Lato', sans-serif;
+
 }
 
 .container {
@@ -17,14 +36,34 @@ h1 {
 
 }
 
+input {
+	margin-right: 10px;
+}
+
+#message {
+    height: 70px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.button-div, #start {
+	display: flex;
+	justify-content: center;
+  align-content: column;
+  align-items: center;
+}
+
+
+/*End of header CSS*/
+
+/*Start of Gameplay CSS*/
+
 div#display {
 	
    font-size: 20px;
    line-height: 30px;
  
 }
-
-
 
 
 div.game-play {
@@ -71,25 +110,7 @@ h4.play, h4.deal {
 	margin-right: 5px;
 }
 
-input {
-	margin-right: 10px;
-}
 
-
-.deal-btn {
-	margin-top: 20px;
-}
-
-
-
-div.total, div.bet-div {
-	display: flex;
-	font-size: 18px;
-	justify-content: center;
-	color: #F1F7EE;
-	font-family: 'Lato', sans-serif;
-
-}
 
 div#actions, .deal-btn {
 	display: flex;
@@ -97,30 +118,6 @@ div#actions, .deal-btn {
   align-content: column;
   align-items: center;
 	
-}
-
-.deal-btn,
-.hold-btn,
-.double-btn,
-.hit-btn,
-.start-btn,
-.bet-btn {
-    border-radius: 5px;
-    padding: 5px 10px;
-    color: #ffffff;
-    background-color: #9B6B2B;
-    min-width: 60px;
-    min-height: 25px;
-    
-}
-
-
-
-.button-div, #start {
-	display: flex;
-	justify-content: center;
-  align-content: column;
-  align-items: center;
 }
 
 .player, .dealer {
@@ -141,9 +138,6 @@ div#actions, .deal-btn {
 
 }
 
-
-
-
 #dealerValue, #playerValue {
 	display: flex;
 	justify-content: row;
@@ -153,13 +147,27 @@ div#actions, .deal-btn {
 }
 
 
+/*End of Gameplay CSS*/
 
+/*Start of button CSS*/
 
+.deal-btn {
+	margin-top: 20px;
+}
 
-
-h1, span, h3, h4, div#message {
-	color: #F1F7EE;
-	font-family: 'Lato', sans-serif;
+.deal-btn,
+.hold-btn,
+.double-btn,
+.hit-btn,
+.start-btn,
+.bet-btn {
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: #ffffff;
+    background-color: #9B6B2B;
+    min-width: 60px;
+    min-height: 25px;
+    
 }
 
 #deal-button,
@@ -170,7 +178,9 @@ h1, span, h3, h4, div#message {
 }
 
 
+/*End of button CSS*/
 
+/*Start of cards CSS*/
 
 #cover {
     display: flex;
@@ -223,7 +233,6 @@ h1, span, h3, h4, div#message {
     font-size: 30px;
     line-height: 30px;
     margin-top: 150px;
-   
     transform: rotate(-180deg);
 	-webkit-transform: rotate(-180deg);
 	-mos-transform: rotate(-180deg);
@@ -247,12 +256,13 @@ h1, span, h3, h4, div#message {
     content: '\2663';
 }
 
+/*End of cards CSS*/
 
-#message {
-    height: 70px;
-    font-size: 20px;
-    text-align: center;
-}
+
+
+/*End of CSS*/
+
+
 
 
 
